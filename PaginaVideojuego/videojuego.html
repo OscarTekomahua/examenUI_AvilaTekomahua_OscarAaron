@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Videojuego</title>
+    <link rel='stylesheet' href='css/estilos.css'>
+</head>
+<style>
+    body{
+        background-image: url(imagenes/fondotres.jpg);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+
+    .imagen-fondo{
+        background-image: url(imagenes/fondocambio.jpg);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+
+    .hidden {
+        display: none;
+    }
+</style>
+<body>
+    <h1 class="encabezado">Cyberpunk 2077</h1>
+    <div class="slider-frame">
+        <ul>
+            <li><img src="imagenes/cbp2077.jpg"></li>
+            <li><img src="imagenes/cyberpunk.jpg"></li>
+            <li><img src="imagenes/cyberpunk2077.jpg"></li>
+            <li><img src="imagenes/keanureeves.jpg"></li>
+        </ul>
+    </div>
+    <div class="espacio1">
+    </div>
+    <div class="cont1">
+        <h2>-------------------- INFO. Y RESEÑA DEL VIDEOJUEGO --------------------</h2>
+    </div>
+    <div class="cont2">
+        <div class="centrado">
+            <p class="sinopsis">
+            Cyberpunk 2077 es un juego de rol de acción desarrollado por CD Projekt Red y lanzado en diciembre de 2020. Ambientado en un futuro distópico en la ciudad de Night City, el juego sigue la historia de V, un mercenario que busca la fama y la fortuna en un mundo donde la tecnología ha avanzado a niveles nunca antes vistos.
+            Desde el punto de vista de los gráficos, Cyberpunk 2077 es impresionante. La ciudad de Night City está llena de detalles, con una variedad de lugares y personajes únicos que realmente te hacen sentir como si estuvieras inmerso en un mundo futurista. La banda sonora también es impresionante, con una mezcla de estilos que 
+            reflejan la diversidad de la ciudad. Sin embargo, el lanzamiento del juego no estuvo exento de problemas técnicos. Muchos jugadores informaron de problemas de rendimiento, errores y otros problemas técnicos, lo que llevó a CD Projekt Red a lanzar una serie de parches para solucionarlos. A pesar de estos problemas, el 
+            juego tiene una gran cantidad de contenido y ofrece una gran cantidad de opciones para personalizar la experiencia de juego. La historia de Cyberpunk 2077 es sólida y se siente auténtica en su representación de la cultura cyberpunk. El juego trata temas como la inteligencia artificial, la identidad de género y la 
+            desigualdad social de una manera interesante y madura. Los personajes también son interesantes y bien escritos, con decisiones difíciles que tomar y ramificaciones importantes para la historia.
+        </p>
+        </div>
+    </div>
+
+    <center><button class="cambioFondo" id="cambioFondo">Change Background Image</button></center>
+
+    <div class="cont3">
+        <center><p class="derAu" id="texto1">Autor de la pagina: Oscar Aaron Avila Tekomahua</p></center>
+        <center><button class="changeText" onclick="cambiarTexto()">See my A.K.A</button></center>
+    </div>
+    <br>
+    <br>
+    <div class="imagenAguila">
+        <img id="imagen" src="imagenes/aguilas.jpg">
+        <button class="botonCambioImagen" id="boton1">Cambiar Imagen</button>
+        <button class="botonRestablecer" id="boton2">Restablecer imagen</button>
+    </div>
+    <br>
+    <br>
+    <div class="contHola">
+        <center><h2 class="encaHolaMundo" id="mensaje">HOLA MUNDO</h2></center>
+        <center><button class="ocultarMensaje" id="botonOcultar">Ocultar Mensaje</button></center>
+    </div>
+    <br>
+    <br>
+    <div class="divGenerado" id="miDiv"></div>
+    <center><button class="writeMessage" id="escribirMensaje">Escribir Mensaje</button></center>
+
+    <script>
+        var cambioFondo = document.getElementById('cambioFondo');
+        cambioFondo.addEventListener('click', function(){
+            var body = document.body;
+            body.style.backgroundImage = "url('imagenes/fondocambio.jpg')";
+        });
+    </script>
+
+    <script>
+        function cambiarTexto(){
+            document.getElementById("texto1").innerHTML = "A.K.A <strong>El Teko</strong>";
+        }
+    </script>
+
+    <script>
+        const boton1 = document.getElementById("boton1");
+        const boton2 = document.getElementById("boton2");
+        const imagen = document.getElementById("imagen");
+
+        const imagen1URL = "imagenes/aguilas.jpg";
+        const imagen2URL = "imagenes/amepapa.jpg";
+
+        boton1.addEventListener("click", function() {
+            imagen.src = imagen2URL;
+        });
+
+        boton2.addEventListener("click", function() {
+            imagen.src = imagen1URL;
+        });
+    </script>
+
+    <script>
+        var botonOcultar = document.getElementById('botonOcultar');
+        var mensaje = document.getElementById('mensaje');
+
+        botonOcultar.addEventListener('click', function() {
+            mensaje.classList.add('hidden');
+        });
+    </script>
+
+    <script>
+        var escribirMensaje = document.getElementById('escribirMensaje');
+        var miDiv = document.getElementById('miDiv');
+
+        escribirMensaje.addEventListener('click', function() {
+            var h1 = document.createElement('h1');
+            h1.textContent = "Este texto no lo escribio Oscar, lo escribio JavaScript";
+            miDiv.appendChild(h1);
+        });
+    </script>
+
+</body>
+</html>
