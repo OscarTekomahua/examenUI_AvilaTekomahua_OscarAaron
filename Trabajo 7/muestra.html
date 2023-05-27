@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muestra</title>
+</head>
+<body>
+    <center><h1>PAGINA DE MUESTRA</h1></center>
+    <h1 class="name" id="nombres"></h1>
+    <h2 class="lastname" id="apellidos"></h2>
+    <a class="mail" id="correo" href="mailto:correo">Enviar correo</a><br><br>
+    <a class="phone" id="phonenumber" href="tel:phonenumber">Llamar</a>
+    <p class="birthday" id="edadMostrada"></p>
+
+    <script>
+        /*getParameter = (key) => {
+            address = window.location.search;
+            parameterList = new URLSearchParams(address);
+            return parameterList.get(key);
+        }
+        
+        //console.log(getParameter("nombre"));
+
+        var nombre = getParameter("nombre");
+        var apellidos = getParameter("apellidos");
+        var correo = getParameter("correo");
+        var phonenumber = getParameter("phonenumber");
+        if ((nombre != null)  && (apellidos != null) && (correo != null) && (phonenumber != null)){
+            document.getElementById("nombre").innerHTML = nombre;
+            document.getElementById("apellidos").innerHTML = apellidos;
+            document.getElementById("correo").href = "mailto:" + correo;
+            document.getElementById("phonenumber").href = "tel:" + phonenumber;
+        }*/
+
+        const urlParams = new URLSearchParams(window.location.search);
+
+        const nombres = urlParams.get("nombres");
+        const apellidos = urlParams.get("apellidos");
+        const correo = urlParams.get("correo");
+        const phonenumber = urlParams.get("phonenumber");
+        const fechaNacimiento = urlParams.get("fechaNacimiento");
+        const contra = urlParams.get("contra");
+
+        document.getElementById("nombres").innerHTML = nombres;
+        document.getElementById("apellidos").innerHTML = apellidos;
+        document.getElementById("correo").href = "mailto:" + correo;
+        document.getElementById("phonenumber").href = "tel:" + phonenumber;
+
+        const fechaNacimientoDate = new Date(fechaNacimiento);
+        const edad = calcularEdad(fechaNacimientoDate);
+        document.getElementById("edadMostrada").textContent = "Tienes " + edad + " años.";
+
+        if (contra.length < 5) {
+            alert("Advertencia: ¡La contraseña es insegura!");
+        }
+
+        function calcularEdad(birthday) {
+            var ageDifMs = Date.now() - birthday.getTime();
+            var ageDate = new Date(ageDifMs);
+            return Math.abs(ageDate.getUTCFullYear() - 1970);
+        }
+
+    </script>
+
+    <style>
+        .name {
+            margin-left: 60px;
+        }
+
+        .lastname {
+            margin-left: 60px;
+        }
+
+        .mail {
+            margin-left: 60px;
+        }
+
+        .phone {
+            margin-left: 60px;
+        }
+
+        .birthday {
+            margin-left: 60px;
+        }
+    </style>
+
+</body>
+</html>

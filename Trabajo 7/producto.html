@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabajo 7</title>
+</head>
+<body>
+
+    <center><h1>FORMULARIO ACTIVIDAD 7</h1></center>
+
+    <div class="formulario">
+        <form action="muestra.html" method="get" id="registroForm">
+            <label>Nombres: </label><input type="text" name="nombres" id="nombres"><br>
+            <label>Apellidos: </label><input type="text" name="apellidos" id="apellidos"><br>
+            <label>Correo: </label><input type="email" name="correo" id="correo"><br>
+            <label>Fecha de nacimiento: </label><input type="date" name="fechaNacimiento" id="fechaNacimiento"><br>
+            <label>Telefono: </label><input type="text" name="phonenumber" id="phonenumber"><br>
+            <label>Usuario: </label><input type="text" name="user"><br>
+            <label>Contraseña: </label><input type="password" name="contra" id="contra"><br>
+            <input type="submit" value="Enviar">
+        </form>
+    </div>
+
+    <style>
+        .formulario {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .formulario input {
+            width: 90%;
+            height: 30px;
+            margin: 0.5rem;
+        }
+
+    </style>
+
+    <script>
+        /*getParameter = (key) => {
+            address = window.location.search;
+            parameterList = new URLSearchParams(address);
+            return parameterList.get(key);
+        }*/
+
+        //console.log(getParameter("nombre"));
+
+        /*var nombre = getParameter("nombre");
+        var apellidos = getParameter("apellidos");
+        var correo = getParameter("correo");
+        var phonenumber = getParameter("phonenumber");
+        if ((nombre != null) && (apellidos != null) && (correo != null) && (phonenumber != null)){
+            document.getElementById("nombre").innerHTML = nombre;
+            document.getElementById("apellidos").innerHTML = apellidos;
+            document.getElementById("correo").href = "mailto:" + correo;
+            document.getElementById("phonenumber").href = "tel:" + phonenumber;
+        }*/
+
+        document.getElementById("registroForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            var nombres = document.getElementById("nombres").value;
+            var apellidos = document.getElementById("apellidos").value;
+            var correo = document.getElementById("correo").value;
+            var phonenumber = document.getElementById("phonenumber").value;
+            var fechaNacimiento = document.getElementById("fechaNacimiento").value;
+            var contra = document.getElementById("contra").value;
+
+            window.location.href = "muestra.html?nombres=" + encodeURIComponent(nombres) + "&apellidos=" + encodeURIComponent(apellidos) + "&correo=" + encodeURIComponent(correo) + "&phonenumber=" + encodeURIComponent(phonenumber) + "&fechaNacimiento=" + encodeURIComponent(fechaNacimiento) + "&contra=" + encodeURIComponent(contra);
+        });
+
+    </script>
+
+</body>
+</html>
